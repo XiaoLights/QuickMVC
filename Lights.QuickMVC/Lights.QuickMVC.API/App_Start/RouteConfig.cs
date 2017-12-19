@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace Lights.QuickMVC.Web
+namespace Lights.QuickMVC.API
 {
     public class RouteConfig
     {
@@ -17,7 +17,6 @@ namespace Lights.QuickMVC.Web
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
-                ,namespaces:new string[] { "Lights.QuickMVC.MyController" }
             );
         }
     }

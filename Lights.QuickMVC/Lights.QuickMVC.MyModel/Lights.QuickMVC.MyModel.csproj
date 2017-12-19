@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{84D2FF4F-8E2E-41ED-858D-AEE161ECD788}</ProjectGuid>
+    <ProjectGuid>{9FD5550A-BD30-4402-B072-A1F261BD1FE0}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Lights.Admin.Service</RootNamespace>
-    <AssemblyName>Lights.Admin.Service</AssemblyName>
+    <RootNamespace>Lights.QuickMVC.MyModel</RootNamespace>
+    <AssemblyName>Lights.QuickMVC.MyModel</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,25 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ModelDemo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Lights.Admin.Model\Lights.Admin.Model.csproj">
-      <Project>{d1b96688-f625-4c74-8c1c-a458b71d0484}</Project>
-      <Name>Lights.Admin.Model</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Lights.Core.Log4net\Lights.Core.Log4net.csproj">
-      <Project>{d3794c29-0d11-466e-8ab6-d991e9569c4a}</Project>
-      <Name>Lights.Core.Log4net</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Lights.Core.Utils\Lights.Core.Utils.csproj">
-      <Project>{abc12863-74fe-4e5c-9089-ce3dd1bb3380}</Project>
-      <Name>Lights.Core.Utils</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Lights.Framework.SqlSugar\Lights.Framework.SqlSugar.csproj">
-      <Project>{6873fdb9-c228-486f-861b-c54803500f8d}</Project>
-      <Name>Lights.Framework.SqlSugar</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
