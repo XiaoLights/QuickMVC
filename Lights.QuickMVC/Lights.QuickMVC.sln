@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lights.QuickMVC.Web", "Lights.QuickMVC.Web\Lights.QuickMVC.Web.csproj", "{256FAE69-0B65-481A-8699-8FA22A793A1B}"
 EndProject
@@ -36,6 +36,11 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lights.QuickMVC.AdminController", "Lights.QuickMVC.AdminController\Lights.QuickMVC.AdminController.csproj", "{47DB3213-1946-4562-9108-9F377490E770}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "V_Web", "V_Web", "{73F85366-7DA5-42D9-A174-35E48599F475}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OtherFiles", "OtherFiles", "{62DC735B-1D9E-48DF-B13A-DD9E34201FCA}"
+	ProjectSection(SolutionItems) = preProject
+		功能列表.xlsx = 功能列表.xlsx
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
