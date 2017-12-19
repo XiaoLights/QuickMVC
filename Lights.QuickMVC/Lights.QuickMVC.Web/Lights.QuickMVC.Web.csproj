@@ -246,6 +246,24 @@
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Lights.Admin.Model\Lights.Admin.Model.csproj">
+      <Project>{d1b96688-f625-4c74-8c1c-a458b71d0484}</Project>
+      <Name>Lights.Admin.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Lights.Admin.Service\Lights.Admin.Service.csproj">
+      <Project>{84d2ff4f-8e2e-41ed-858d-aee161ecd788}</Project>
+      <Name>Lights.Admin.Service</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Lights.Core.Log4net\Lights.Core.Log4net.csproj">
+      <Project>{d3794c29-0d11-466e-8ab6-d991e9569c4a}</Project>
+      <Name>Lights.Core.Log4net</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Lights.Core.Utils\Lights.Core.Utils.csproj">
+      <Project>{abc12863-74fe-4e5c-9089-ce3dd1bb3380}</Project>
+      <Name>Lights.Core.Utils</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
