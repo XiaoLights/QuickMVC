@@ -17,6 +17,10 @@ namespace Lights.Core.Log4net
 
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         private static string SystemModule()
         {
             StackTrace ss = new StackTrace(true);
@@ -32,11 +36,12 @@ namespace Lights.Core.Log4net
             return systemModule;
         }
 
-        /**
-                         * 向日志文件写入调试信息
-                         * @param className 类名
-                         * @param content 写入内容
-                         */
+        
+        /// <summary>
+        /// 向日志文件写入调试信息
+        /// </summary>
+        /// <param name="content">类名</param>
+        /// <param name="ex">写入内容</param>
         public static void Debug(string content, Exception ex)
         {
             var methodinfo = SystemModule();
@@ -45,11 +50,12 @@ namespace Lights.Core.Log4net
             extLog.Debug(methodinfo, ex);
         }
 
-        /**
-        * 向日志文件写入运行时信息
-        * @param className 类名
-        * @param content 写入内容
-        */
+        
+        /// <summary>
+        /// 向日志文件写入运行时信息
+        /// </summary>
+        /// <param name="className">类名</param>
+        /// <param name="content">写入内容</param>
         public static void Info(string className, string content)
         {
             var methodinfo = SystemModule();
@@ -62,11 +68,11 @@ namespace Lights.Core.Log4net
             extLog.Info(GetIPAddress(), methodinfo, url, className, content);
         }
 
-        /**
-        * 向日志文件写入出错信息
-        * @param className 类名
-        * @param content 写入内容
-        */
+        /// <summary>
+        /// 向日志文件写入出错信息
+        /// </summary>
+        /// <param name="className">类名</param>
+        /// <param name="content">错误信息</param>
         public static void Error(string className, string content)
         {
             var methodinfo = SystemModule();
@@ -78,6 +84,11 @@ namespace Lights.Core.Log4net
             }
             extLog.Error(GetIPAddress(), methodinfo, url, className, content);
         }
+        /// <summary>
+        /// 向日志文件写入出错信息
+        /// </summary>
+        /// <param name="className">类名</param>
+        /// <param name="ex">异常对象</param>
         public static void Error(string className, Exception ex)
         {
             var methodinfo = SystemModule();

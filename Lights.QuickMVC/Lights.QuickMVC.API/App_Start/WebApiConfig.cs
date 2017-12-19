@@ -18,6 +18,7 @@ namespace Lights.QuickMVC.API
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
+                
             );
         }
     }

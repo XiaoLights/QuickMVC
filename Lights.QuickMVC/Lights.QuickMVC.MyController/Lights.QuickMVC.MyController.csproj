@@ -73,6 +73,14 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Lights.Core.Log4net\Lights.Core.Log4net.csproj">
+      <Project>{d3794c29-0d11-466e-8ab6-d991e9569c4a}</Project>
+      <Name>Lights.Core.Log4net</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Lights.Core.Utils\Lights.Core.Utils.csproj">
+      <Project>{abc12863-74fe-4e5c-9089-ce3dd1bb3380}</Project>
+      <Name>Lights.Core.Utils</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Lights.QuickMVC.MyModel\Lights.QuickMVC.MyModel.csproj">
       <Project>{9fd5550a-bd30-4402-b072-a1f261bd1fe0}</Project>
       <Name>Lights.QuickMVC.MyModel</Name>
