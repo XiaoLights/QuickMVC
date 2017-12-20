@@ -12,10 +12,15 @@ namespace Lights.QuickMVC.Web
     {
         protected void Application_Start()
         {
+            //隐藏浏览器中的mvc版本号
+            MvcHandler.DisableMvcResponseHeader = true;
+
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+          
         }
     }
 }

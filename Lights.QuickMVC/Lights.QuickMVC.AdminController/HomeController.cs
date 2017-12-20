@@ -11,7 +11,7 @@ namespace Lights.QuickMVC.AdminController
     {
         public ActionResult Index()
         {
-            
+           // Response.Redirect("/Admin/Login/Index");
             return View();
         }
     }

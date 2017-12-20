@@ -5919,10 +5919,10 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\AdminPage\login.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\Admin\Views\web.config" />
-    <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
     <Content Include="log4net.config" />
     <Content Include="Content\metronic_v4.5.2\theme\admin_1_angularjs\demo\ecommerce_orders.php" />
     <Content Include="Content\metronic_v4.5.2\theme\admin_1_angularjs\demo\ecommerce_order_credit_memos.php" />
@@ -6615,6 +6615,9 @@
     <Content Include="Content\metronic_v4.5.2\theme\sass\pages\profile.scss" />
     <Content Include="Content\metronic_v4.5.2\theme\sass\pages\search.scss" />
     <Content Include="Content\metronic_v4.5.2\theme\sass\pages\tasks.scss" />
+    <Content Include="Areas\Admin\Views\Login\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_MainHome.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -6640,9 +6643,9 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="Content\metronic_v4.5.2\theme\assets\apps\img\" />
     <Folder Include="Content\metronic_v4.5.2\theme\assets\global\plugins\angularjs\plugins\angular-file-upload\uploads\" />
+    <Folder Include="Scripts\Page\" />
     <Folder Include="Views\Shared\" />
   </ItemGroup>
   <ItemGroup>

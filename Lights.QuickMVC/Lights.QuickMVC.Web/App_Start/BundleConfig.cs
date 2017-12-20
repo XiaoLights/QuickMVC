@@ -14,18 +14,23 @@ namespace Lights.QuickMVC.Web
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
 
-            // 使用要用于开发和学习的 Modernizr 的开发版本。然后，当你做好
-            // 生产准备时，请使用 http://modernizr.com 上的生成工具来仅选择所需的测试。
-            bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
-                        "~/Scripts/modernizr-*"));
-
-            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/bootstrap.js",
-                      "~/Scripts/respond.js"));
-
-            bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+            bundles.Add(new ScriptBundle("~/bundles/CorePlugins").Include(
+                "~/Content/metronic_v4.5.2/theme/assets/global/plugins/jquery.min.js"
+                , "~/Content/metronic_v4.5.2/theme/assets/global/plugins/bootstrap/js/bootstrap.min.js"
+                ,"~/Content/metronic_v4.5.2/theme/assets/global/plugins/js.cookie.min.js"
+                , "~/Content/metronic_v4.5.2/theme/assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js"
+                , "~/Content/metronic_v4.5.2/theme/assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js"
+                , "~/Content/metronic_v4.5.2/theme/assets/global/plugins/jquery.blockui.min.js"
+                , "~/Content/metronic_v4.5.2/theme/assets/global/plugins/uniform/jquery.uniform.min.js"
+                , "~/Content/metronic_v4.5.2/theme/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js"
+                ));
+            bundles.Add(new ScriptBundle("~/bundles/GlobalStyles").Include(
+                "~/Content/metronic_v4.5.2/theme/assets/global/plugins/font-awesome/css/font-awesome.min.css"
+                , "~/Content/metronic_v4.5.2/theme/assets/global/plugins/simple-line-icons/simple-line-icons.min.css"
+                , "~/Content/metronic_v4.5.2/theme/assets/global/plugins/bootstrap/css/bootstrap.min.css"
+                , "~/Content/metronic_v4.5.2/theme/assets/global/plugins/uniform/css/uniform.default.min.css"
+                , "~/Content/metronic_v4.5.2/theme/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css"
+                ));
         }
     }
 }
