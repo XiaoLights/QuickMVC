@@ -24,6 +24,7 @@ namespace Lights.QuickMVC.API.Controllers
         // POST api/values
         public void Post([FromBody]string value)
         {
+            new Lights.Admin.Service.SystemService().CreateEntity();
         }
 
         // PUT api/values/5

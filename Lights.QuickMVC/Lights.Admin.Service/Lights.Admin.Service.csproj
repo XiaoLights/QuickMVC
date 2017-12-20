@@ -30,6 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -41,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SystemService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Lights.Admin.Model\Lights.Admin.Model.csproj">
@@ -55,10 +60,18 @@
       <Project>{abc12863-74fe-4e5c-9089-ce3dd1bb3380}</Project>
       <Name>Lights.Core.Utils</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Lights.Framework.Manager\Lights.Framework.Manager.csproj">
+      <Project>{715266c3-3d8b-4f73-b69a-572b2f8c1941}</Project>
+      <Name>Lights.Framework.Manager</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Lights.Framework.SqlSugar\Lights.Framework.SqlSugar.csproj">
       <Project>{6873fdb9-c228-486f-861b-c54803500f8d}</Project>
       <Name>Lights.Framework.SqlSugar</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
