@@ -175,6 +175,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\createTable.sql" />
     <Content Include="Content\AdminLTE\.gitignore" />
     <Content Include="Content\AdminLTE\bower_components\bootstrap-colorpicker\dist\css\bootstrap-colorpicker.css" />
     <Content Include="Content\AdminLTE\bower_components\bootstrap-colorpicker\dist\css\bootstrap-colorpicker.min.css" />
@@ -7466,6 +7467,7 @@
     <Content Include="Content\AdminLTE\README.md" />
     <Content Include="Content\AdminLTE\yarn.lock" />
     <Content Include="Areas\Admin\Views\Shared\_MainHomeLTE.cshtml" />
+    <Content Include="App_Data\功能列表.xlsx" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -7489,7 +7491,6 @@
     <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Scripts\Page\" />
     <Folder Include="Views\Shared\" />
