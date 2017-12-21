@@ -26,5 +26,10 @@ namespace Lights.Admin.Service
             }
             throw new NotImplementedException();
         }
+
+        public List<V_Admin_UserPower> GetAdminPower(int userid)
+        {
+            return manager.GetList<V_Admin_UserPower>(it => it.UserID == userid);
+        }
     }
 }

@@ -44,6 +44,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Lights.Admin.Model\Lights.Admin.Model.csproj">
+      <Project>{d1b96688-f625-4c74-8c1c-a458b71d0484}</Project>
+      <Name>Lights.Admin.Model</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Lights.Core.Log4net\Lights.Core.Log4net.csproj">
       <Project>{d3794c29-0d11-466e-8ab6-d991e9569c4a}</Project>
       <Name>Lights.Core.Log4net</Name>

@@ -9,17 +9,22 @@ using System.Web.Mvc;
 
 namespace Lights.QuickMVC.AdminController
 {
-    public class MyAuthorizationAttribute : AuthorizeAttribute, IAuthorizationFilter
+    public class MyAuthorizationAttribute :AuthorizeAttribute
     {
-        public bool IsAuth = true;
-        public void OnAuthorization(AuthorizationContext filterContext)
+        public bool IsAuth
+        {
+            get; set;
+        }
+
+        public override void OnAuthorization(AuthorizationContext filterContext)
         {
             if (IsAuth)
             {
                 Tb_Admin_UserInfo userinfo = (Tb_Admin_UserInfo)filterContext.HttpContext.Session["UserInfo"];
                 if (userinfo == null)
                 {
-                    filterContext.HttpContext.Response.Redirect("/Admin/Login/Login?Redirect=" + filterContext.HttpContext.Request.Url.Fragment);
+                    filterContext.Result = new RedirectResult("/Admin/Login/Login?Redirect=" + filterContext.HttpContext.Request.Url.Fragment);
+                    //filterContext.HttpContext.Response.Redirect();
                 }
             }
 

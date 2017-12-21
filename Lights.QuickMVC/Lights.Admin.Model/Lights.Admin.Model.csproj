@@ -44,7 +44,10 @@
     <Compile Include="Tb_Admin_Action.cs" />
     <Compile Include="Tb_Admin_Controller.cs" />
     <Compile Include="Tb_Admin_Role.cs" />
+    <Compile Include="Tb_Admin_RoleControllerAction.cs" />
     <Compile Include="Tb_Admin_UserInfo.cs" />
+    <Compile Include="Tb_Admin_UserRole.cs" />
+    <Compile Include="V_Admin_UserPower.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

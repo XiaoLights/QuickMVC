@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Lights.Admin.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,10 +12,14 @@ namespace Lights.QuickMVC.AdminController
     {
         public ActionResult Index()
         {
-           // Response.Redirect("/Admin/Login/Index");
+            //Tb_Admin_UserInfo userinfo = (Tb_Admin_UserInfo)Session["UserInfo"];
+            //if (userinfo == null)
+            //{
+            //    Response.Redirect("/Admin/Login/Login?Redirect=" + Request.Url.Fragment);
+            //}
             return View();
         }
 
-         
+
     }
 }

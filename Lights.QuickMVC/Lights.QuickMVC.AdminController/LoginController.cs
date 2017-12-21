@@ -1,14 +1,15 @@
-﻿using Lights.Core.Utils;
+﻿using Lights.Admin.Model;
+using Lights.Core.Utils;
 using System;
 using System.Web;
 using System.Web.Mvc;
 
 namespace Lights.QuickMVC.AdminController
 {
-    [MyAuthorization(IsAuth = false)]
+    [MyAuthorization(IsAuth =false)]
     public class LoginController : Controller
     {
-        [HttpGet]
+       
         public ActionResult Index()
         {
 
@@ -42,7 +43,9 @@ namespace Lights.QuickMVC.AdminController
                     cookie.Expires = DateTime.Now.AddDays(7);
                     Response.Cookies.Add(cookie);
                 }
-                Session["UserInfo"] = result.Data;
+                Tb_Admin_UserInfo userinfo = (Tb_Admin_UserInfo)result.Data;
+                Session["UserInfo"] = userinfo;
+                Session["UserPower"] = loginservice.GetAdminPower(userinfo.UserID);
                 //Response.Redirect("/Admin/Home/Index");
             }
             return Json(result);
