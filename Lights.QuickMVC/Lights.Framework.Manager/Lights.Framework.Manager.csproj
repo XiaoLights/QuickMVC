@@ -48,7 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseDataManager.cs" />
+    <Compile Include="SqlSugarManager.cs" />
     <Compile Include="IManager\IManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlSugarCreateEntity.cs" />

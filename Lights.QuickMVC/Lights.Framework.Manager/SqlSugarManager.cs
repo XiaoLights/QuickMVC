@@ -4,13 +4,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Linq.Expressions;
 
 namespace Lights.Framework.Manager
 {
-    public class BaseDataManager : IManager
+    public class SqlSugarManager : IManager
     {
         public string OperateError = "";
-        public BaseDataManager() { }
+        public SqlSugarManager() { }
         SqlsugarRepository repository = new SqlsugarRepository();
 
         public bool Delete<T>(T entity) where T : class, new()
@@ -23,6 +24,12 @@ namespace Lights.Framework.Manager
             }
         }
 
+        /// <summary>
+        /// 获取实体对象
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public T Get<T>(object id) where T : class, new()
         {
             using (var db = repository.GetInstance())
@@ -30,6 +37,26 @@ namespace Lights.Framework.Manager
                 T entity = db.Queryable<T>().InSingle(id);
                 OperateError = repository._operatorError;
                 return entity;
+            }
+        }
+
+        public T Get<T>(System.Linq.Expressions.Expression<Func<T, bool>> expr) where T : class, new()
+        {
+            using (var db = repository.GetInstance())
+            {
+                T entity = db.Queryable<T>().Where(expr).First();
+                OperateError = repository._operatorError;
+                return entity;
+            }
+        }
+
+        public List<T> GetList<T>(Expression<Func<T, bool>> expr) where T : class, new()
+        {
+            using (var db = repository.GetInstance())
+            {
+                List<T> list = db.Queryable<T>().Where(expr).ToList();
+                OperateError = repository._operatorError;
+                return list;
             }
         }
 
@@ -52,5 +79,7 @@ namespace Lights.Framework.Manager
                 return i > 0;
             }
         }
+
+
     }
 }
