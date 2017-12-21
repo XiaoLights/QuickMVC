@@ -14,6 +14,7 @@ namespace Lights.Admin.Service
         IManager manager = new SqlSugarManager();
         public LightsResponse AdminLogin(string userName, string passWord)
         {
+            passWord = StringHelper.GetMD5(passWord);
             Tb_Admin_UserInfo userinfo = manager.Get<Tb_Admin_UserInfo>(it => it.UserName == userName && it.PassWord == passWord);
             if (userinfo != null)
             {
