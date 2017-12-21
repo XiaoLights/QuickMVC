@@ -44,10 +44,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LoginService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SystemService.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Lights.Admin.IService\Lights.Admin.IService.csproj">
+      <Project>{ec67c618-ae34-4a71-9011-09e30f4ea9e0}</Project>
+      <Name>Lights.Admin.IService</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Lights.Admin.Model\Lights.Admin.Model.csproj">
       <Project>{d1b96688-f625-4c74-8c1c-a458b71d0484}</Project>
       <Name>Lights.Admin.Model</Name>
