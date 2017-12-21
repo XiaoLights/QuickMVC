@@ -5,8 +5,10 @@ using System.Web.Mvc;
 
 namespace Lights.QuickMVC.AdminController
 {
+    [MyAuthorization(IsAuth = false)]
     public class LoginController : Controller
     {
+        [HttpGet]
         public ActionResult Index()
         {
 
@@ -17,15 +19,12 @@ namespace Lights.QuickMVC.AdminController
                 ViewBag.PW = cookie["pw"];
                 ViewBag.RM = true;
             }
-            Response.Cookies.Add(cookie);
-
-
 
             ViewBag.PageTitle = "后台管理系统";
             return View();
         }
 
-        public JsonResult Login(string username, string password, bool? rememberMe)
+        public JsonResult Login(string username, string password, string rememberMe)
         {
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
             {
@@ -35,7 +34,7 @@ namespace Lights.QuickMVC.AdminController
             LightsResponse result = loginservice.AdminLogin(username, password);
             if (result.Success)
             {
-                if (rememberMe.HasValue && rememberMe.Value)
+                if (!string.IsNullOrEmpty(rememberMe) && rememberMe == "on")
                 {
                     HttpCookie cookie = new HttpCookie("qmvc");
                     cookie["un"] = username;
@@ -44,7 +43,7 @@ namespace Lights.QuickMVC.AdminController
                     Response.Cookies.Add(cookie);
                 }
                 Session["UserInfo"] = result.Data;
-                Response.Redirect("/Admin/Home/Index");
+                //Response.Redirect("/Admin/Home/Index");
             }
             return Json(result);
         }

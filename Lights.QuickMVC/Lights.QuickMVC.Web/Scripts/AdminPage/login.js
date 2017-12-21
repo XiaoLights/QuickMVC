@@ -14,7 +14,7 @@ var Login = function () {
         function formLogin() {
             $("#spanerror").hide().text('');
             var obj = $('#loginform').serialize();
-            obj += '&rememberMe=' + false;
+            //obj += '&rememberMe=' + false;
             $.post("/Admin/Login/Login", obj, function (data) {
                 if (data.Success) {
                     window.location.href = "/Admin/Home/Index";
