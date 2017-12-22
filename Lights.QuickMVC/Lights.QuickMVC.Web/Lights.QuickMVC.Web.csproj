@@ -7470,6 +7470,7 @@
     <Content Include="App_Data\功能列表.xlsx" />
     <Content Include="App_Data\HISDemo-10.rar" />
     <Content Include="App_Data\HISDemoDb.rar" />
+    <Content Include="App_Data\tzhsweet-superui-master.zip" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
