@@ -39,6 +39,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "V_Web", "V_Web", "{73F85366
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lights.Admin.IService", "Lights.Admin.IService\Lights.Admin.IService.csproj", "{EC67C618-AE34-4A71-9011-09E30F4EA9E0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lights.QuickMVC.AdminModel", "Lights.QuickMVC.AdminModel\Lights.QuickMVC.AdminModel.csproj", "{B0DA3E18-E66F-4D2E-8668-1149B739214A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -93,6 +95,10 @@ Global
 		{EC67C618-AE34-4A71-9011-09E30F4EA9E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EC67C618-AE34-4A71-9011-09E30F4EA9E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EC67C618-AE34-4A71-9011-09E30F4EA9E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0DA3E18-E66F-4D2E-8668-1149B739214A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0DA3E18-E66F-4D2E-8668-1149B739214A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0DA3E18-E66F-4D2E-8668-1149B739214A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0DA3E18-E66F-4D2E-8668-1149B739214A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -110,5 +116,6 @@ Global
 		{AE3E2E8C-7AF6-4D52-91DC-620ECD1A89D7} = {73F85366-7DA5-42D9-A174-35E48599F475}
 		{47DB3213-1946-4562-9108-9F377490E770} = {6BA4172E-AD11-439A-A6F0-013601EF6B6F}
 		{EC67C618-AE34-4A71-9011-09E30F4EA9E0} = {EC9FED2D-86ED-4594-B6B4-C71CBEF7B369}
+		{B0DA3E18-E66F-4D2E-8668-1149B739214A} = {BC85B78E-0133-4BE1-8FD2-F4B4EF7FF3CF}
 	EndGlobalSection
 EndGlobal

@@ -17,25 +17,19 @@ var Login = function () {
             //obj += '&rememberMe=' + false;
             $.post("/Admin/Login/Login", obj, function (data) {
                 if (data.Success) {
-                    window.location.href = "/Admin/Home/Index";
+                    var returl = $("#btnsubmit").attr("returl");
+                    if (returl) {
+                        window.location.href = returl;
+                    } else {
+                        window.location.href = "/Admin/Home/Index";
+                    }
                 }
                 else {
                     $("#spanerror").show().text(data.ErrorMsg);
                 }
             })
         }
-
     }
-
-
-
-
-
-
-
-
-
-
     return {
         //main function to initiate the module
         init: function () {

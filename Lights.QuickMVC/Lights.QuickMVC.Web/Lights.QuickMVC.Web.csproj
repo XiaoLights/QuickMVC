@@ -7524,6 +7524,10 @@
       <Project>{47db3213-1946-4562-9108-9f377490e770}</Project>
       <Name>Lights.QuickMVC.AdminController</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Lights.QuickMVC.AdminModel\Lights.QuickMVC.AdminModel.csproj">
+      <Project>{b0da3e18-e66f-4d2e-8668-1149b739214a}</Project>
+      <Name>Lights.QuickMVC.AdminModel</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Lights.QuickMVC.MyController\Lights.QuickMVC.MyController.csproj">
       <Project>{72bfa255-320f-4ebe-970d-f08c6be3fa49}</Project>
       <Name>Lights.QuickMVC.MyController</Name>

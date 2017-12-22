@@ -1,7 +1,8 @@
 ﻿
-@{ 
+@{
     Lights.Admin.Model.Tb_Admin_UserInfo UserInfo = (Lights.Admin.Model.Tb_Admin_UserInfo)Session["UserInfo"];
-    List<Lights.Admin.Model.V_Admin_UserPower> PowerList= (List<Lights.Admin.Model.V_Admin_UserPower>)Session["UserPower"];
+    List<Lights.Admin.Model.V_Admin_UserPower> PowerList = (List<Lights.Admin.Model.V_Admin_UserPower>)Session["UserPower"];
+    List<Lights.QuickMVC.AdminModel.AdminMenu> MenuList = (List<Lights.QuickMVC.AdminModel.AdminMenu>)Session["UserMenu"];
 }
 
 <!DOCTYPE html>
@@ -23,7 +24,7 @@
     <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
       page. However, you can choose any other skin. Make sure you
       apply the skin class to the body tag so the changes take effect. -->
-    @Styles.Render("~/bundles/CSS/Skin");
+    @Styles.Render("~/bundles/CSS/Skin")
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -55,7 +56,7 @@ desired effect
 |               | sidebar-mini                            |
 |---------------------------------------------------------|
 -->
-<body class="hold-transition skin-red sidebar-mini">
+<body class="hold-transition skin-blue sidebar-mini">
 
     <div class="wrapper">
         <!-- Main Header -->
@@ -199,7 +200,7 @@ desired effect
                                         <a href="javascript:;" class="btn btn-default btn-flat">个人配置</a>
                                     </div>
                                     <div class="pull-right">
-                                        <a href="javascript:;" class="btn btn-default btn-flat">注销</a>
+                                        <a href="/Admin/Login/Index" class="btn btn-default btn-flat">注销</a>
                                     </div>
                                 </li>
                             </ul>
@@ -240,7 +241,42 @@ desired effect
                 <ul class="sidebar-menu" data-widget="tree">
                     <li class="header">HEADER</li>
                     <!-- Optionally, you can add icons to the links -->
-                    <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Link</span></a></li>
+                    @{
+                        if (MenuList.Count != 0)
+                        {
+                            for (int i = 0; i < MenuList.Count; i++)
+                            {
+                                Lights.QuickMVC.AdminModel.AdminMenu am = MenuList[i];
+                                if (am.Child != null && am.Child.Count > 0)
+                                {
+                                    <li class='treeview @i==0?"active":"" '>
+                                        <a href="@am.MenuUrl">
+                                            <i class="fa @am.MenuIcon"></i> <span>@am.Menuname</span>
+                                            <span class="pull-right-container">
+                                                <i class="fa fa-angle-left pull-right"></i>
+                                            </span>
+                                        </a>
+                                        <ul class="treeview-menu">
+                                           @foreach (Lights.QuickMVC.AdminModel.AdminMenu m in am.Child)
+                                           {
+                                             <li><a href="@m.MenuUrl">@m.Menuname</a></li>
+                                           }
+                                           
+                                        </ul>
+                                    </li>
+                                }
+                                else
+                                {
+                                    <li @(i==0?"class=active":"") ><a href="@am.MenuUrl"><i class="fa @am.MenuIcon"></i> <span>@am.Menuname</span></a></li>
+                                }
+                            }
+                        }
+
+                    }
+
+
+
+                    @*<li class="active"><a href="#"><i class="fa fa-link"></i> <span>Link</span></a></li>
                     <li><a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a></li>
                     <li class="treeview">
                         <a href="#">
@@ -253,7 +289,7 @@ desired effect
                             <li><a href="#">Link in level 2</a></li>
                             <li><a href="#">Link in level 2</a></li>
                         </ul>
-                    </li>
+                    </li>*@
                 </ul>
                 <!-- /.sidebar-menu -->
             </section>

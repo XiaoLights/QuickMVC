@@ -96,6 +96,10 @@
       <Project>{abc12863-74fe-4e5c-9089-ce3dd1bb3380}</Project>
       <Name>Lights.Core.Utils</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Lights.QuickMVC.AdminModel\Lights.QuickMVC.AdminModel.csproj">
+      <Project>{b0da3e18-e66f-4d2e-8668-1149b739214a}</Project>
+      <Name>Lights.QuickMVC.AdminModel</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

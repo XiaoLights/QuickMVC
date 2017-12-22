@@ -1,18 +1,25 @@
 ﻿using Lights.Admin.Model;
 using Lights.Core.Utils;
+using Lights.QuickMVC.AdminModel;
 using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
 namespace Lights.QuickMVC.AdminController
 {
-    [MyAuthorization(IsAuth =false)]
+    [MyAuthorization(IsAuth = false)]
     public class LoginController : Controller
     {
-       
+        [AllowAnonymous]
         public ActionResult Index()
         {
-
+            if (Session["UserInfo"] != null || Session["UserPower"] != null || Session["UserMenu"] != null)
+            {
+                Session.RemoveAll();
+            }
             HttpCookie cookie = Request.Cookies["qmvc"];
             if (cookie != null)
             {
@@ -22,6 +29,7 @@ namespace Lights.QuickMVC.AdminController
             }
 
             ViewBag.PageTitle = "后台管理系统";
+            ViewBag.ReturnUrl = Request.QueryString["ret"];
             return View();
         }
 
@@ -44,11 +52,21 @@ namespace Lights.QuickMVC.AdminController
                     Response.Cookies.Add(cookie);
                 }
                 Tb_Admin_UserInfo userinfo = (Tb_Admin_UserInfo)result.Data;
+                List<V_Admin_UserPower> powerlist = loginservice.GetAdminPower(userinfo.UserID);
                 Session["UserInfo"] = userinfo;
-                Session["UserPower"] = loginservice.GetAdminPower(userinfo.UserID);
-                //Response.Redirect("/Admin/Home/Index");
+                Session["UserPower"] = powerlist;
+                Session["UserMenu"] = GetAdminMenu(powerlist);
             }
             return Json(result);
         }
+
+        public IList<AdminMenu> GetAdminMenu(List<V_Admin_UserPower> powerlist)
+        {
+            List<AdminMenu> list = new List<AdminMenu>();
+
+
+            return list;
+        }
+
     }
 }
