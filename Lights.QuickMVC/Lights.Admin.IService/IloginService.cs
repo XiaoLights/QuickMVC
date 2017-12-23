@@ -12,6 +12,8 @@ namespace Lights.Admin.IService
     {
         LightsResponse AdminLogin(string userName,string PassWord);
 
-        List<V_Admin_UserPower> GetAdminPower(int userid);
+        List<V_Admin_RoleMenu> GetAdminPower(int userid);
+
+        List<Tb_Admin_UserRole> GetUserRoleList(int userid);
     }
 }

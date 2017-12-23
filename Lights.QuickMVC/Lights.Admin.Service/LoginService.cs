@@ -27,9 +27,14 @@ namespace Lights.Admin.Service
             throw new NotImplementedException();
         }
 
-        public List<V_Admin_UserPower> GetAdminPower(int userid)
+        public List<V_Admin_RoleMenu> GetAdminPower(int roleID)
         {
-            return manager.GetList<V_Admin_UserPower>(it => it.UserID == userid);
+            return manager.GetList<V_Admin_RoleMenu>(it => it.RoleID == roleID);
+        }
+
+        public List<Tb_Admin_UserRole> GetUserRoleList(int userid)
+        {
+            return manager.GetList<Tb_Admin_UserRole>(it => it.UserID == userid);
         }
     }
 }

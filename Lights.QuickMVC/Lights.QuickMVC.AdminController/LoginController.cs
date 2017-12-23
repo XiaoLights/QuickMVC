@@ -52,19 +52,50 @@ namespace Lights.QuickMVC.AdminController
                     Response.Cookies.Add(cookie);
                 }
                 Tb_Admin_UserInfo userinfo = (Tb_Admin_UserInfo)result.Data;
-                List<V_Admin_UserPower> powerlist = loginservice.GetAdminPower(userinfo.UserID);
+                List<Tb_Admin_UserRole> urlist = loginservice.GetUserRoleList(userinfo.UserID);
+                List<V_Admin_RoleMenu> powerlist = new List<V_Admin_RoleMenu>();
+                if (urlist != null && urlist.Count > 0)
+                {
+                    foreach (Tb_Admin_UserRole ur in urlist)
+                    {
+                        List<V_Admin_RoleMenu> plist = loginservice.GetAdminPower(ur.RoleID);
+                        if (plist != null)
+                        {
+                            var tmplist = from p in plist where !(from pp in powerlist select pp.MenuID).Contains(p.MenuID) select p;
+                            if (tmplist != null)
+                            {
+                                foreach (var p in tmplist)
+                                {
+                                    powerlist.Add(p);
+                                }
+                            }
+                        }
+                    }
+                }
+
                 Session["UserInfo"] = userinfo;
                 Session["UserPower"] = powerlist;
-                Session["UserMenu"] = GetAdminMenu(powerlist);
+                Session["UserMenu"] = GetAdminMenu(powerlist, 0);
             }
             return Json(result);
         }
 
-        public IList<AdminMenu> GetAdminMenu(List<V_Admin_UserPower> powerlist)
+        public IList<AdminMenu> GetAdminMenu(List<V_Admin_RoleMenu> powerlist, int parentID)
         {
             List<AdminMenu> list = new List<AdminMenu>();
-
-
+            List<V_Admin_RoleMenu> plist = powerlist.Where(it => it.ParentID == parentID).OrderBy(it => it.Sort).ToList();
+            foreach (V_Admin_RoleMenu rm in plist)
+            {
+                AdminMenu am = new AdminMenu();
+                am.id = rm.MenuID.ToString();
+                am.text = rm.MenuName;
+                am.url = rm.MenuUrl;
+                am.icon = rm.MenuIcon;
+                am.isOpen = false;
+                am.targetType = "iframe-tab";
+                am.children = GetAdminMenu(powerlist, rm.MenuID.Value);
+                list.Add(am);
+            }
             return list;
         }
 

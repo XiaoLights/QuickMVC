@@ -5,7 +5,7 @@ using System.Text;
 namespace Lights.Admin.Model
 {
     ///<summary>
-    ///
+    ///用户表
     ///</summary>
     public partial class Tb_Admin_UserInfo
     {
@@ -14,46 +14,53 @@ namespace Lights.Admin.Model
 
            }
            /// <summary>
-           /// Desc:
+           /// Desc:用户编号
            /// Default:
            /// Nullable:False
            /// </summary>           
            public int UserID {get;set;}
 
            /// <summary>
-           /// Desc:
+           /// Desc:用户名称
            /// Default:
            /// Nullable:False
            /// </summary>           
            public string UserName {get;set;}
 
            /// <summary>
-           /// Desc:
+           /// Desc:真实姓名
            /// Default:
-           /// Nullable:False
+           /// Nullable:True
            /// </summary>           
-           public string TelePhone {get;set;}
+           public string TrueName {get;set;}
 
            /// <summary>
-           /// Desc:
+           /// Desc:密码
            /// Default:
            /// Nullable:False
            /// </summary>           
            public string PassWord {get;set;}
 
            /// <summary>
-           /// Desc:
-           /// Default:DateTime.Now
-           /// Nullable:False
+           /// Desc:头像
+           /// Default:
+           /// Nullable:True
            /// </summary>           
-           public DateTime CreateDate {get;set;}
+           public string AvatarImg {get;set;}
 
            /// <summary>
-           /// Desc:
+           /// Desc:创建时间
            /// Default:DateTime.Now
-           /// Nullable:False
+           /// Nullable:True
            /// </summary>           
-           public DateTime LastOnlineDate {get;set;}
+           public DateTime? CreateDate {get;set;}
+
+           /// <summary>
+           /// Desc:最后在线时间
+           /// Default:DateTime.Now
+           /// Nullable:True
+           /// </summary>           
+           public DateTime? LastOnlineDate {get;set;}
 
     }
 }

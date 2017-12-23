@@ -5,7 +5,7 @@ using System.Text;
 namespace Lights.Admin.Model
 {
     ///<summary>
-    ///
+    ///角色表
     ///</summary>
     public partial class Tb_Admin_Role
     {
@@ -14,21 +14,21 @@ namespace Lights.Admin.Model
 
            }
            /// <summary>
-           /// Desc:
+           /// Desc:角色编号
            /// Default:
            /// Nullable:False
            /// </summary>           
            public int RoleID {get;set;}
 
            /// <summary>
-           /// Desc:
+           /// Desc:角色名称
            /// Default:
            /// Nullable:False
            /// </summary>           
            public string RoleName {get;set;}
 
            /// <summary>
-           /// Desc:
+           /// Desc:角色描述
            /// Default:
            /// Nullable:True
            /// </summary>           

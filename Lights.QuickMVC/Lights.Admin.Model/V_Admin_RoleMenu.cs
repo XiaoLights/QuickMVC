@@ -7,19 +7,12 @@ namespace Lights.Admin.Model
     ///<summary>
     ///
     ///</summary>
-    public partial class V_Admin_UserPower
+    public partial class V_Admin_RoleMenu
     {
-           public V_Admin_UserPower(){
+           public V_Admin_RoleMenu(){
 
 
            }
-           /// <summary>
-           /// Desc:
-           /// Default:
-           /// Nullable:False
-           /// </summary>           
-           public int UserID {get;set;}
-
            /// <summary>
            /// Desc:
            /// Default:
@@ -30,7 +23,7 @@ namespace Lights.Admin.Model
            /// <summary>
            /// Desc:
            /// Default:
-           /// Nullable:True
+           /// Nullable:False
            /// </summary>           
            public string RoleName {get;set;}
 
@@ -46,28 +39,14 @@ namespace Lights.Admin.Model
            /// Default:
            /// Nullable:True
            /// </summary>           
+           public int? MenuID {get;set;}
+
+           /// <summary>
+           /// Desc:
+           /// Default:
+           /// Nullable:True
+           /// </summary>           
            public int? ControllerID {get;set;}
-
-           /// <summary>
-           /// Desc:
-           /// Default:
-           /// Nullable:True
-           /// </summary>           
-           public string ControllerName {get;set;}
-
-           /// <summary>
-           /// Desc:
-           /// Default:
-           /// Nullable:True
-           /// </summary>           
-           public string ControllerCode {get;set;}
-
-           /// <summary>
-           /// Desc:
-           /// Default:
-           /// Nullable:True
-           /// </summary>           
-           public string ControllerIcon {get;set;}
 
            /// <summary>
            /// Desc:
@@ -81,28 +60,35 @@ namespace Lights.Admin.Model
            /// Default:
            /// Nullable:True
            /// </summary>           
-           public string ActionName {get;set;}
+           public string MenuName {get;set;}
 
            /// <summary>
            /// Desc:
            /// Default:
            /// Nullable:True
            /// </summary>           
-           public string ActionCode {get;set;}
+           public string MenuUrl {get;set;}
 
            /// <summary>
            /// Desc:
            /// Default:
            /// Nullable:True
            /// </summary>           
-           public string ActionIcon {get;set;}
+           public string MenuIcon {get;set;}
 
            /// <summary>
            /// Desc:
            /// Default:
            /// Nullable:True
            /// </summary>           
-           public int? IsPage {get;set;}
+           public int? ParentID {get;set;}
+
+           /// <summary>
+           /// Desc:
+           /// Default:
+           /// Nullable:True
+           /// </summary>           
+           public int? Sort {get;set;}
 
     }
 }
