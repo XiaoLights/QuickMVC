@@ -1,0 +1,72 @@
+﻿@{
+    Lights.Admin.Model.Tb_Admin_UserInfo UserInfo = (Lights.Admin.Model.Tb_Admin_UserInfo)Session["UserInfo"];
+    List<Lights.QuickMVC.AdminModel.AdminMenu> MenuList = (List<Lights.QuickMVC.AdminModel.AdminMenu>)Session["UserMenu"];
+    string MenuStr = Json.Encode(MenuList);
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>后台管理系统</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.6 -->
+    <link rel="stylesheet" href="../content/ui/global/bootstrap/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link href="../content/ui/global/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <!-- Theme style -->
+    <link rel="stylesheet" href="../content/adminlte/dist/css/AdminLTE.css">
+    <link rel="stylesheet" href="../content/adminlte/dist/css/skins/_all-skins.css">
+    <link href="../content/min/css/supershopui.common.min.css" rel="stylesheet" />
+    @RenderSection("Style", required: false)
+    <style type="text/css">
+        html {
+            overflow: hidden;
+        }
+    </style>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<!--
+BODY TAG OPTIONS:
+=================
+Apply one or more of the following classes to get the
+desired effect
+|---------------------------------------------------------|
+| SKINS         | skin-blue                               |
+|               | skin-black                              |
+|               | skin-purple                             |
+|               | skin-yellow                             |
+|               | skin-red                                |
+|               | skin-green                              |
+|---------------------------------------------------------|
+|LAYOUT OPTIONS | fixed                                   |
+|               | layout-boxed                            |
+|               | layout-top-nav                          |
+|               | sidebar-collapse                        |
+|               | sidebar-mini                            |
+|---------------------------------------------------------|
+-->
+
+<body>
+    @RenderBody()
+
+    <!-- ./wrapper -->
+    <!-- REQUIRED JS SCRIPTS -->
+    <!-- jQuery 2.2.3 -->
+    <script src="../content/ui/global/jQuery/jquery.min.js"></script>
+    <!-- Bootstrap 3.3.6 -->
+    <script src="../content/ui/global/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../content/min/js/supershopui.common.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>
