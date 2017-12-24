@@ -80,6 +80,13 @@ namespace Lights.Framework.Manager
             }
         }
 
+        public List<T> GetAll<T>() where T : class, new()
+        {
+            using (var db = repository.GetInstance())
+            {
+                return db.Queryable<T>().ToList();
+            }
 
+        }
     }
 }

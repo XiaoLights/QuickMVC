@@ -20,5 +20,7 @@ namespace Lights.Framework.Manager
         T Get<T>(Expression<Func<T, bool>> expr) where T : class, new();
 
         List<T> GetList<T>(Expression<Func<T, bool>> expr) where T : class, new();
+
+        List<T> GetAll<T>() where T : class, new();
     }
 }

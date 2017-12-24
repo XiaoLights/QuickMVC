@@ -1020,6 +1020,7 @@
     <Content Include="Areas\Admin\Views\User\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Role\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Menu\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_MainAdminTable.cshtml" />
     <None Include="Content\superui\Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

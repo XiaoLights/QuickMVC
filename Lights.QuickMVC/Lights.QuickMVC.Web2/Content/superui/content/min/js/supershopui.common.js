@@ -444,11 +444,19 @@ function _init() {
           checkElement.slideDown(animationSpeed, function () {
             //Add the class active to the parent li
             checkElement.addClass('menu-open');
-            parent.find('li.active').removeClass('active');
-            parent_li.addClass('active');
+            //parent.find('li.active').removeClass('active');
+            //parent_li.addClass('active');
             //Fix the layout in case the sidebar stretches over the height of the window
             _this.layout.fix();
           });
+        } else if ($this.is('.nav-link')) {
+            var rootul = $('.sidebar-menu');
+            var parent_ul = $this.parents("ul").first();
+            var rootli = parent_ul.parents("li").first();
+            var parent = $this.parent("li");
+            rootul.find('li.active').removeClass('active');
+            rootli.addClass('active');
+            parent.addClass('active');
         }
         //if this isn't a link, prevent the page from being redirected
         if (checkElement.is('.treeview-menu')) {
@@ -1130,7 +1138,7 @@ function _init() {
 
 var App = function() {
 
-    var basePath = '/content/';
+    var basePath = '/Content/superui/content/';
 
     var imgPath = 'ui/img/';
 
@@ -1709,6 +1717,8 @@ $(function () {
         }
     }
 });
+
+
 (function ($) {
     $.fn.sidebarMenu = function (options) {
         options = $.extend({}, $.fn.sidebarMenu.defaults, options || {});
