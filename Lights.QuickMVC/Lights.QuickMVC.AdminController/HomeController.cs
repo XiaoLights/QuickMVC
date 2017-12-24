@@ -20,6 +20,9 @@ namespace Lights.QuickMVC.AdminController
             return View();
         }
 
-
+        public ActionResult Welcome()
+        {
+            return View();
+        }
     }
 }

@@ -1016,6 +1016,10 @@
     <Content Include="Areas\Admin\Views\Shared\_MainHomeSuperUI.cshtml" />
     <Content Include="Areas\Admin\Views\Login\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\Welcome.cshtml" />
+    <Content Include="Areas\Admin\Views\User\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Role\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Menu\Index.cshtml" />
     <None Include="Content\superui\Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
