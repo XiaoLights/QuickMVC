@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Linq.Expressions;
+using SqlSugar;
+using Lights.Core.Utils;
 
 namespace Lights.Framework.Manager
 {
@@ -87,6 +89,93 @@ namespace Lights.Framework.Manager
                 return db.Queryable<T>().ToList();
             }
 
+        }
+
+        public List<T> GetPageList<T>(int pageIndex, int pageSize,
+            Expression<Func<T, object>> orderby, int orderType,
+            Expression<Func<T, bool>> where, ref int totalCount) where T : class, new()
+        {
+            using (var db = repository.GetInstance())
+            {
+                List<T> list = db.Queryable<T>().OrderBy(orderby, (OrderByType)orderType).Where(where).ToPageList(pageIndex, pageSize, ref totalCount).ToList();
+                return list;
+            }
+        }
+
+        public List<T> GetPageList<T>(int pageIndex, int pageSize, string orderBy, Expression<Func<T, bool>> where, ref int totalCount) where T : class, new()
+        {
+            using (var db = repository.GetInstance())
+            {
+                List<T> list = db.Queryable<T>().OrderBy(orderBy).Where(where).ToPageList(pageIndex, pageSize, ref totalCount).ToList();
+                return list;
+            }
+        }
+
+        public List<T> GetPageList<T>(int pageIndex, int pageSize, string orderBy, string WhereStr, Expression<Func<T, bool>> where, ref int totalCount) where T : class, new()
+        {
+            using (var db = repository.GetInstance())
+            {
+                List<T> list = db.Queryable<T>().OrderBy(orderBy).Where(WhereStr).Where(where).ToPageList(pageIndex, pageSize, ref totalCount).ToList();
+                return list;
+            }
+        }
+
+        public List<T> GetPageList<T>(int pageIndex, int pageSize, string orderBy, string WhereStr, List<Expression<Func<T, bool>>> wheres, ref int totalCount) where T : class, new()
+        {
+            using (var db = repository.GetInstance())
+            {
+                var queryable = db.Queryable<T>();
+                queryable = queryable.OrderBy(orderBy);
+                queryable = queryable.Where(WhereStr);
+                if (wheres.Count > 0)
+                {
+                    foreach (Expression<Func<T, bool>> exp in wheres)
+                    {
+                        queryable = queryable.Where(exp);
+                    }
+                }
+                List<T> list = queryable.ToPageList(pageIndex, pageSize, ref totalCount).ToList();
+                return list;
+            }
+        }
+
+        public List<T> GetPageList<T>(PageParams<T> param, ref int totalCount) where T : class, new()
+        {
+            using (var db = repository.GetInstance())
+            {
+                var queryable = db.Queryable<T>();
+                if (!string.IsNullOrEmpty(param.WhereSql))
+                {
+                    queryable = queryable.Where(param.WhereSql);
+                }
+                if (param.Wheres != null)
+                {
+                    foreach (var where in param.Wheres)
+                    {
+                        queryable = queryable.Where(where);
+                    }
+                }
+                if (param.Where != null)
+                {
+                    queryable = queryable.Where(param.Where);
+                }
+                if (param.OrderColumns == null && string.IsNullOrEmpty(param.StrOrderColumns))
+                {
+                    throw new Exception("分页必须要排序。");
+                }
+
+                if (!string.IsNullOrEmpty(param.StrOrderColumns))
+                {
+                    queryable = queryable.OrderBy(param.StrOrderColumns);
+                }
+                if (param.OrderColumns != null)
+                {
+                    queryable = queryable.OrderBy(param.OrderColumns, (OrderByType)param.OrderType);
+                }
+                var key = queryable.ToSql();
+                List<T> list = queryable.ToPageList(param.PageIndex, param.PageSize, ref totalCount).ToList();
+                return list;
+            }
         }
     }
 }

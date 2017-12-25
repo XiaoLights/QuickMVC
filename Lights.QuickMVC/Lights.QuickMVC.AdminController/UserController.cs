@@ -1,5 +1,6 @@
 ﻿using Lights.Admin.IService;
 using Lights.Admin.Model;
+using Lights.Core.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,10 +18,15 @@ namespace Lights.QuickMVC.AdminController
             return View();
         }
 
-        public JsonResult GetUserList(int limit, int offset)
+        public JsonResult GetUserList(int limit, int offset, string userName, string orderColomn)
         {
-            List<Tb_Admin_UserInfo> list = userService.GetUserList();
-            object obj = new { total = 1, rows = list };
+            PageParams<Tb_Admin_UserInfo> param = new PageParams<Tb_Admin_UserInfo>();
+            param.PageSize = limit;
+            param.PageIndex = param.GetPageIndex(offset, limit);
+            param.OrderColumns = it => it.CreateDate;
+            int totalCount = 0;
+            List<Tb_Admin_UserInfo> list = userService.GetUserPageList(param, ref totalCount);
+            object obj = new { total = totalCount, rows = list };
             return Json(obj);
         }
     }

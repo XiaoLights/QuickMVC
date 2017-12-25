@@ -30,15 +30,8 @@
 
 <body>
     <section class="content-header">
-        <h1>
-            管理表格
-            <small>bootstrap-table管理表格</small>
-        </h1>
-        <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li><a href="#">Tables</a></li>
-            <li class="active">Simple</li>
-        </ol>
+
+        @RenderSection("headerBox", required: false)
     </section>
     <!-- Main content -->
     <section class="content">
@@ -76,6 +69,6 @@
     <script src="/Content/superui/content/plugins/bootstrap-table/bootstrap-table.js"></script>
     <script src="/Content/superui/content/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.js"></script>
     @RenderSection("Scripts", required: true)
-     
+
 </body>
 </html>

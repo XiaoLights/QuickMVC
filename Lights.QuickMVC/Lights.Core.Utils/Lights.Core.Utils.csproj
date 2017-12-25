@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="Common\LightsRequest.cs" />
     <Compile Include="Common\LightsResponse.cs" />
+    <Compile Include="Common\PageParams.cs" />
     <Compile Include="EnumExtension.cs" />
     <Compile Include="ErrorCodeEnum.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -199,17 +199,17 @@ desired effect
                             <!-- Menu Toggle Button -->
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <!-- The user image in the navbar-->
-                                <img src="/Content/superui/content/ui/img/photos/girl1.png" class="user-image" alt="User Image">
+                                <img src="@(string.IsNullOrEmpty(UserInfo.AvatarImg)?"/Content/superui/content/ui/img/photos/girl1.png":UserInfo.AvatarImg)" class="user-image" alt="User Image">
                                 <!-- hidden-xs hides the username on small devices so only the image appears. -->
-                                <span class="hidden-xs">TZHSWEET</span>
+                                <span class="hidden-xs">@UserInfo.TrueName</span>
                             </a>
                             <ul class="dropdown-menu">
                                 <!-- The user image in the menu -->
                                 <li class="user-header">
-                                    <img src="/Content/superui/content/ui/img/photos/girl1.png" class="img-circle" alt="User Image">
+                                    <img src="@(string.IsNullOrEmpty(UserInfo.AvatarImg)?"/Content/superui/content/ui/img/photos/girl1.png":UserInfo.AvatarImg)" class="img-circle" alt="User Image">
                                     <p>
-                                        TZHSWEET的小妞
-                                        <small>2016年注册</small>
+                                       欢迎  @UserInfo.TrueName
+                                        <small>@UserInfo.CreateDate.Value.ToString("yyyy") 年注册</small>
                                     </p>
                                 </li>
                                 <!-- Menu Body -->
@@ -253,12 +253,12 @@ desired effect
                 <!-- Sidebar user panel (optional) -->
                 <div class="user-panel">
                     <div class="pull-left image">
-                        <img src="/Content/superui/content/ui/img/photos/girl1.png" class="img-circle" alt="用户头像">
+                        <img src="@(string.IsNullOrEmpty(UserInfo.AvatarImg)?"/Content/superui/content/ui/img/photos/girl1.png":UserInfo.AvatarImg)" class="img-circle" alt="用户头像">
                     </div>
                     <div class="pull-left info">
-                        <p>TZHSWEET</p>
+                        <p>@UserInfo.TrueName</p>
                         <!-- Status -->
-                        <a href="#"><i class="fa fa-circle text-success"></i> 在线</a>
+                        @*<a href="#"><i class="fa fa-circle text-success"></i> 在线</a>*@
                     </div>
                 </div>
                 <!-- search form (Optional) -->
