@@ -1,11 +1,11 @@
-﻿var userIndex = new function () {
+﻿var menuIndex = new function () {
     var Current = this;
     this.Init = function () {
         Current.InitTable();
     }
     this.InitTable = function () {
         $('#table').bootstrapTable({
-            url: '/Admin/User/GetUserList',                           //请求后台的URL（*）
+            url: '/Admin/Menu/GetMenuList',                           //请求后台的URL（*）
             method: 'post',                     //请求方式（*）
             toolbar: '#toolbar',                   //工具按钮用哪个容器
             striped: true,                      //是否显示行间隔色
@@ -18,24 +18,23 @@
                 checkbox: true,
                 align: 'center'
             }, {
-                field: 'UserID',
-                title: '用户编号'
+                field: 'MenuID',
+                title: '菜单编号'
                 , sortable: true
             }, {
-                field: 'UserName',
-                title: '用户名称'
+                field: 'MenuName',
+                title: '菜单名称'
                  , sortable: true
             }, {
-                field: 'TrueName',
-                title: '真实姓名'
+                field: 'MenuUrl',
+                title: '菜单路径'
             }, {
-                field: 'CreateDate',
-                title: '创建时间'
+                field: 'MenuIcon',
+                title: '图标'
+            }, {
+                field: 'Sort',
+                title: '排序'
                 , sortable: true
-                ,formatter: function (value) { return Common.FormatTime(value); }
-            }, {
-                field: 'AvatarImg',
-                title: '头像'
             }]
         });
     }
@@ -57,5 +56,5 @@
 }
 
 $(function () {
-    userIndex.Init();
+    menuIndex.Init();
 })

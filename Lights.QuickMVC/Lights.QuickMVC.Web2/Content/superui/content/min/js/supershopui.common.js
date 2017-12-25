@@ -1865,8 +1865,10 @@ var addTabs = function(options) {
             if (options.content) {
                 content = '<div role="tabpanel" class="tab-pane" id="' + id + '">' + options.content + '</div>';
             } else { //没有内容，使用IFRAME打开链接
-            //    App.startPageLoading({ message: '加载中......' });
-            //    App.stopPageLoading();
+            //    App.startPageLoading({ message: '加载中......' });
+
+            //    App.stopPageLoading();
+
                 App.blockUI({
                     target: '#tab-content',
                     boxed: true,
@@ -2120,3 +2122,65 @@ x();"bottom"===a.start?(c.css({top:b.outerHeight()-c.outerHeight()}),n(0,!0)):"t
  * http://cameronspear.com/blog/bootstrap-dropdown-on-hover-plugin/
  */
 !function(e,n){var o=e();e.fn.dropdownHover=function(t){return"ontouchstart"in document?this:(o=o.add(this.parent()),this.each(function(){var i,r=e(this),s=r.parent(),d={delay:500,instantlyCloseOthers:!0},a={delay:e(this).data("delay"),instantlyCloseOthers:e(this).data("close-others")},h="show.bs.dropdown",u="hide.bs.dropdown",l=e.extend(!0,{},d,t,a);s.hover(function(e){return s.hasClass("open")||r.is(e.target)?(o.find(":focus").blur(),l.instantlyCloseOthers===!0&&o.removeClass("open"),n.clearTimeout(i),s.addClass("open"),void r.trigger(h)):!0},function(){i=n.setTimeout(function(){s.removeClass("open"),r.trigger(u)},l.delay)}),r.hover(function(){o.find(":focus").blur(),l.instantlyCloseOthers===!0&&o.removeClass("open"),n.clearTimeout(i),s.addClass("open"),r.trigger(h)}),s.find(".dropdown-submenu").each(function(){var o,t=e(this);t.hover(function(){n.clearTimeout(o),t.children(".dropdown-menu").show(),t.siblings().children(".dropdown-menu").hide()},function(){var e=t.children(".dropdown-menu");o=n.setTimeout(function(){e.hide()},l.delay)})})}))},e(document).ready(function(){e('[data-hover="dropdown"]').not(".hover-initialized").each(function(){e(this).dropdownHover(),e(this).addClass("hover-initialized")})})}(jQuery,this);
+
+
+
+
+var Common = Common || {};
+Common.QueryString = {
+    data: {},
+    Initial: function () {
+        var aPairs, aTmp;
+        var queryString = new String(window.location.search);
+        queryString = queryString.substr(1, queryString.length); //remove   "?"     
+        aPairs = queryString.split("&");
+        for (var i = 0; i < aPairs.length; i++) {
+            aTmp = aPairs[i].split("=");
+            this.data[aTmp[0]] = aTmp[1];
+        }
+    },
+    GetValue: function (key) {
+        return decodeURI(this.data[key]);
+    }
+}
+Common.QueryString.Initial();
+
+
+Common.FormatTime = function (time, format) {
+    if (!time) {
+        return "";
+    }
+    if (format == undefined || format == "") {
+        format = "yyyy/MM/dd hh:mm:ss";
+    }
+    var date = new Date(parseInt(time.substring(6, time.length - 2)))
+    return date.format(format);
+}
+
+Date.prototype.format = function (format) {
+    var o =
+    {
+        "M+": this.getMonth() + 1, //month
+        "d+": this.getDate(),    //day
+        "h+": this.getHours(),   //hour
+        "m+": this.getMinutes(), //minute
+        "s+": this.getSeconds(), //second
+        "q+": Math.floor((this.getMonth() + 3) / 3),  //quarter
+        "S": this.getMilliseconds() //millisecond
+    }
+    if (/(y+)/.test(format))
+        format = format.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+    for (var k in o)
+        if (new RegExp("(" + k + ")").test(format))
+            format = format.replace(RegExp.$1, RegExp.$1.length == 1 ? o[k] : ("00" + o[k]).substr(("" + o[k]).length));
+    return format;
+}
+
+
+
+
+
+
+
+
+

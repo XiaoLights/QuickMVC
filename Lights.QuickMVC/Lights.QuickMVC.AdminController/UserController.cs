@@ -18,12 +18,19 @@ namespace Lights.QuickMVC.AdminController
             return View();
         }
 
-        public JsonResult GetUserList(int limit, int offset, string userName, string orderColomn)
+        public JsonResult GetUserList(int pageindex, int pagesize, string sortName, string sortOrder, string SearchKey, string SearchType)
         {
             PageParams<Tb_Admin_UserInfo> param = new PageParams<Tb_Admin_UserInfo>();
-            param.PageSize = limit;
-            param.PageIndex = param.GetPageIndex(offset, limit);
-            param.OrderColumns = it => it.CreateDate;
+            param.PageSize = pagesize;
+            param.PageIndex = param.GetPageIndex(pageindex, pagesize);
+
+            if (!string.IsNullOrEmpty(sortName))
+            {
+                param.StrOrderColumns = sortName + " " + sortOrder;
+            }
+            else {
+                param.OrderColumns = it => it.CreateDate;
+            }
             int totalCount = 0;
             List<Tb_Admin_UserInfo> list = userService.GetUserPageList(param, ref totalCount);
             object obj = new { total = totalCount, rows = list };
