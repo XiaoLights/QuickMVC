@@ -41,13 +41,7 @@
             <div class="col-md-12">
                 <!-- BEGIN SAMPLE TABLE PORTLET-->
                 <div class="box-body" style="padding-bottom:0px;">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">查询条件</div>
-                        <div class="panel-body">
-                            @RenderSection("searchBox", required: false)
-                        </div>
-                    </div>
-
+                    @RenderSection("searchBox", required: false)
                     <div id="toolbar" class="btn-group">
                         @RenderSection("toolbarBox", required: false)
                     </div>

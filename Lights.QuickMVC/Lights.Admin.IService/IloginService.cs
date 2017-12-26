@@ -15,5 +15,11 @@ namespace Lights.Admin.IService
         List<V_Admin_RoleMenu> GetAdminPower(int userid);
 
         List<Tb_Admin_UserRole> GetUserRoleList(int userid);
+
+        Tb_Admin_UserInfo GetUserInfoByID(int userid);
+
+        List<V_Admin_RoleMenu> GetUserPowerList(Tb_Admin_UserInfo userinfo);
+
+        IList<object> GetAdminMenu(List<V_Admin_RoleMenu> powerlist, int parentID);
     }
 }

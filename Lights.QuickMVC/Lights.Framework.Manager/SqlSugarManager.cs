@@ -82,6 +82,22 @@ namespace Lights.Framework.Manager
             }
         }
 
+        /// <summary>
+        /// 更新指定字段的值
+        /// </summary>
+        /// <typeparam name="T">更新的实体</typeparam>
+        /// <param name="entity">更新的对象</param>
+        /// <param name="expr">需要更新的字段</param>
+        /// <returns></returns>
+        public bool Update<T>(T entity, Expression<Func<T, object>> expr) where T : class, new()
+        {
+            using (var db = repository.GetInstance())
+            {
+                int i = db.Updateable<T>(entity).WhereColumns(expr).ExecuteCommand();
+                OperateError = repository._operatorError;
+                return i > 0;
+            }
+        }
         public List<T> GetAll<T>() where T : class, new()
         {
             using (var db = repository.GetInstance())
@@ -175,6 +191,14 @@ namespace Lights.Framework.Manager
                 var key = queryable.ToSql();
                 List<T> list = queryable.ToPageList(param.PageIndex, param.PageSize, ref totalCount).ToList();
                 return list;
+            }
+        }
+
+        public bool ExecuteSql(string sqlstr)
+        {
+            using (var db = repository.GetInstance())
+            {
+                return db.Ado.ExecuteCommand(sqlstr) > 0;
             }
         }
     }

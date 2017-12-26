@@ -20,6 +20,11 @@ namespace Lights.QuickMVC.AdminController
             {
                 Session.RemoveAll();
             }
+
+            HttpCookie cookielogin = new HttpCookie("lginfo");
+            cookielogin.Expires = DateTime.Now.AddDays(-7);
+            Response.Cookies.Add(cookielogin);
+
             HttpCookie cookie = Request.Cookies["qmvc"];
             if (cookie != null)
             {
@@ -39,6 +44,11 @@ namespace Lights.QuickMVC.AdminController
             {
                 return Json(LightsResponse.GetErrorResponse("请输入用户名和密码"));
             }
+            if (password.StartsWith("enc_"))
+            {
+                password = password.Replace("enc_", "");
+                password = StringHelper.Decrypt(password);
+            }
             Admin.IService.IloginService loginservice = new Admin.Service.LoginService();
             LightsResponse result = loginservice.AdminLogin(username, password);
             if (result.Success)
@@ -47,57 +57,26 @@ namespace Lights.QuickMVC.AdminController
                 {
                     HttpCookie cookie = new HttpCookie("qmvc");
                     cookie["un"] = username;
-                    cookie["pw"] = password;
+                    cookie["pw"] = "enc_" + StringHelper.Encrypt(password);
                     cookie.Expires = DateTime.Now.AddDays(7);
                     Response.Cookies.Add(cookie);
                 }
                 Tb_Admin_UserInfo userinfo = (Tb_Admin_UserInfo)result.Data;
-                List<Tb_Admin_UserRole> urlist = loginservice.GetUserRoleList(userinfo.UserID);
-                List<V_Admin_RoleMenu> powerlist = new List<V_Admin_RoleMenu>();
-                if (urlist != null && urlist.Count > 0)
-                {
-                    foreach (Tb_Admin_UserRole ur in urlist)
-                    {
-                        List<V_Admin_RoleMenu> plist = loginservice.GetAdminPower(ur.RoleID);
-                        if (plist != null)
-                        {
-                            var tmplist = from p in plist where !(from pp in powerlist select pp.MenuID).Contains(p.MenuID) select p;
-                            if (tmplist != null)
-                            {
-                                foreach (var p in tmplist)
-                                {
-                                    powerlist.Add(p);
-                                }
-                            }
-                        }
-                    }
-                }
-
+                List<V_Admin_RoleMenu> powerlist = loginservice.GetUserPowerList(userinfo);
                 Session["UserInfo"] = userinfo;
                 Session["UserPower"] = powerlist;
-                Session["UserMenu"] = GetAdminMenu(powerlist, 0);
+                Session["UserMenu"] = loginservice.GetAdminMenu(powerlist, 0);
+
+                HttpCookie cookielogin = new HttpCookie("lginfo");
+                cookielogin["uname"] = username;
+                cookielogin["uid"] = StringHelper.Encrypt(userinfo.UserID.ToString()); ;
+                cookielogin.Expires = DateTime.Now.AddDays(1);
+                Response.Cookies.Add(cookielogin);
             }
             return Json(result);
         }
 
-        public IList<AdminMenu> GetAdminMenu(List<V_Admin_RoleMenu> powerlist, int parentID)
-        {
-            List<AdminMenu> list = new List<AdminMenu>();
-            List<V_Admin_RoleMenu> plist = powerlist.Where(it => it.ParentID == parentID).OrderBy(it => it.Sort).ToList();
-            foreach (V_Admin_RoleMenu rm in plist)
-            {
-                AdminMenu am = new AdminMenu();
-                am.id = rm.MenuID.ToString();
-                am.text = rm.MenuName;
-                am.url = rm.MenuUrl;
-                am.icon = rm.MenuIcon;
-                am.isOpen = false;
-                am.targetType = "iframe-tab";
-                am.children = GetAdminMenu(powerlist, rm.MenuID.Value);
-                list.Add(am);
-            }
-            return list;
-        }
+
 
     }
 }
