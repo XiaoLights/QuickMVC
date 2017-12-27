@@ -2,6 +2,7 @@
     var Current = this;
     this.Init = function () {
         Current.InitTable();
+        Current.InitButton();
     }
     this.InitTable = function () {
         $('#table').bootstrapTable({
@@ -51,6 +52,16 @@
         return temp;
     }
 
+    this.InitButton = function () {
+        $("#btn_add").click(function () {
+            layer.open({
+                type: 1,
+                area: ['600px', '360px'],
+                shadeClose: true, //点击遮罩关闭
+                content: $("#addmenu").html()
+            });
+        })
+    }
 
     return Current;
 }
