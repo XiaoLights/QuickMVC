@@ -1035,6 +1035,17 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\Plugins\layer\layer\layer.js" />
+    <Content Include="Scripts\Plugins\layer\layer\mobile\layer.js" />
+    <Content Include="Scripts\Plugins\layer\layer\mobile\need\layer.css" />
+    <Content Include="Scripts\Plugins\layer\layer\theme\default\icon-ext.png" />
+    <Content Include="Scripts\Plugins\layer\layer\theme\default\icon.png" />
+    <Content Include="Scripts\Plugins\layer\layer\theme\default\layer.css" />
+    <Content Include="Scripts\Plugins\layer\layer\theme\default\loading-0.gif" />
+    <Content Include="Scripts\Plugins\layer\layer\theme\default\loading-1.gif" />
+    <Content Include="Scripts\Plugins\layer\layer\theme\default\loading-2.gif" />
+    <Content Include="Scripts\Plugins\layer\test.html" />
+    <Content Include="Scripts\Plugins\layer\更新日志.txt" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
@@ -1052,6 +1063,11 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Scripts\Plugins\layer\文档\jquery下载.url" />
+    <Content Include="Scripts\Plugins\layer\文档\layer官网.url" />
+    <Content Include="Scripts\Plugins\layer\文档\layer文档.url" />
+    <Content Include="Scripts\Plugins\layer\文档\layui社区.url" />
+    <Content Include="Scripts\Plugins\layer\文档\获得layim.url" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
