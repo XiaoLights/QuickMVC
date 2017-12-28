@@ -7471,6 +7471,7 @@
     <Content Include="App_Data\HISDemo-10.rar" />
     <Content Include="App_Data\HISDemoDb.rar" />
     <Content Include="App_Data\tzhsweet-superui-master.zip" />
+    <Content Include="App_Data\KingSpeak.zip" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
